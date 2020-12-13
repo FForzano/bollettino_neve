@@ -1,0 +1,12 @@
+Protocollo applicativo UTF-8 canonical:
+(<len>:<data><len>:<data>...)
+
+
+Client                  Server
+        Regione, N
+    -------------------->
+        
+        result
+    <--------------------
+
+            ...
