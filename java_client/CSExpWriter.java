@@ -1,5 +1,3 @@
-package java_client;
-
 import java.io.*;
 
 public class CSExpWriter {

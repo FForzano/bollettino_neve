@@ -1,5 +1,3 @@
-package java_client;
-
 import java.io.*;
 import java.util.zip.DataFormatException;
 

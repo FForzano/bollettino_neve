@@ -19,8 +19,8 @@ public class BollettinoNeve {
         try{
             BufferedReader usrIn = new BufferedReader (new InputStreamReader(System.in));
             Socket s = new Socket (args[0], Integer.parseInt(args[1]));
-            LenPrefReader netIn = new LenPrefReader(s.getInputStream());
-            LenPrefWriter netOut = new LenPrefWriter(s.getOutputStream());
+            CSExpReader netIn = new CSExpReader(s.getInputStream());
+            CSExpWriter netOut = new CSExpWriter(s.getOutputStream());
 
             String info[]= new String[2];
             System.out.println ("Inserire la regione di interesse:");
@@ -32,7 +32,7 @@ public class BollettinoNeve {
                 netOut.writemex(info);
 
                 //String result[] = netIn.readmex();
-                System.out.println ((netIn.readmex())[0] + "\0");
+                System.out.println ((netIn.readmex())[0]);
 
                 System.out.println ("Inserire la regione di interesse");
                 info[0]=usrIn.readLine();
