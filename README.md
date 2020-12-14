@@ -24,6 +24,7 @@ User insert the region and the number of ski resort and the server have to send 
 Client end when user write "fine".
 
 For more info about the program see ./doc/Testo_Esercizio_11.txt
+
 (NB: complete text of exercise is in italian, i'll translate it).
 
 ___
