@@ -1,4 +1,4 @@
-#bollettino_neve
+# bollettino_neve
 
 This project is an example of Client-Server application.
 The server is in Posix-C, the Client both in Posix-C and Java.
