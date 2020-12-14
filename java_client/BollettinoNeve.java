@@ -36,7 +36,7 @@ public class BollettinoNeve {
                 System.out.println (messages[0] + "media: " + messages[1] + " cm");
 
                 // New user request
-                System.out.println ("Inserire la regione di interesse");
+                System.out.println ("\nInserire la regione di interesse");
                 info[0]=usrIn.readLine();
             }
             

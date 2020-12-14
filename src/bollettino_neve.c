@@ -19,7 +19,7 @@ int main (int argc, char** argv){
     char *usrIn[2]={'\0'};
     uint8_t *netIn;
     uint8_t *netOut;
-    uint8_t *message[1]={0};
+    uint8_t *message[2]={0};
 
     usrIn[0]=malloc(MAX_LEN);
     usrIn[1]=malloc(MAX_LEN);
@@ -76,15 +76,15 @@ int main (int argc, char** argv){
             fprintf (stderr, "readmex error: %s\n", rm_getmessage(err));
             exit (EXIT_FAILURE);
         }
-        if(getmexinfo(message, 1, netIn)<0){
+        if(getmexinfo(message, 2, netIn)<0){
             fprintf(stderr, "getmexinfo error\n");
             exit (EXIT_FAILURE);
         }
 
-        ulc_fprintf (stdout, "%U\n", message[0]);
+        ulc_fprintf (stdout, "%Umedie: %U cm\n", message[0], message[1]);
 
         /* new user request */
-        printf("Inserire la regione di interesse\n");
+        printf("\nInserire la regione di interesse\n");
         scanf("%s", usrIn[0]);
     }
 
