@@ -1,3 +1,7 @@
+/**
+ * Server main procedure
+ **/
+
 #define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
@@ -14,7 +18,6 @@
 #include "../include/csexp.h"
 
 
-/**
- * Server main procedure
- **/
 void execute (int *pd_return, uint8_t *region_u8, uint8_t *N_u8);
+
+char* medie_snow (char* buffer);

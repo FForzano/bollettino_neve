@@ -104,3 +104,38 @@ void execute (int *pd_return, uint8_t *region_u8, uint8_t *N_u8){
         exit (EXIT_FAILURE);
     }
 }
+
+char* medie_snow (char* buffer){
+    int sum = 0, n_element=0;
+    char* cm_c=NULL, *endptr, *output, *nextptr;
+    char *buffercpy;
+
+    /* copy of in buffer */
+    buffercpy = malloc (strlen(buffer)*sizeof(char));
+    strcpy(buffercpy, buffer);
+
+    while ((cm_c=strtok_r(buffercpy,",", &nextptr))!=NULL){
+        long cm;
+
+        buffercpy = nextptr;
+        cm = strtol (cm_c, &endptr, 10);
+        if ((cm == LONG_MIN || cm == LONG_MAX) && (errno == ERANGE)){
+            /* overflow or underflow in conversion */
+            return (NULL);
+        }
+        if (*endptr != '\0'){
+            fprintf (stderr, "strtol terminated but string isn't terminated\n");
+            return NULL;
+        }
+
+        sum += (int)cm;
+        n_element++;
+
+        strtok_r(buffercpy,"\n", &nextptr); /* manca controllo */
+        buffercpy=nextptr;
+    }
+
+    output = malloc (5);
+    sprintf (output, "%d", sum/n_element);
+    return output;
+}

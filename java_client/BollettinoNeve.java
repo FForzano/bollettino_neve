@@ -31,9 +31,11 @@ public class BollettinoNeve {
 
                 netOut.writemex(info);
 
-                //String result[] = netIn.readmex();
-                System.out.println ((netIn.readmex())[0]);
+                // print all return messages
+                String[] messages = netIn.readmex();
+                System.out.println (messages[0] + "media: " + messages[1] + " cm");
 
+                // New user request
                 System.out.println ("Inserire la regione di interesse");
                 info[0]=usrIn.readLine();
             }

@@ -103,7 +103,7 @@ int main (int argc, char** argv){
         if (pid==0){
             int pd_result[2];
             uint8_t *netIn, *netOut, *message[2];
-            char *pipe_buff[1];
+            char *result_buff[2];
 
             /* socket passiva non gestita da questo processo */
             if (close(sd)<0){
@@ -145,14 +145,14 @@ int main (int argc, char** argv){
                     perror ("stat error");
                     exit (EXIT_FAILURE);
                 }
-                pipe_buff[0] = malloc (sb.st_size +1);
+                result_buff[0] = malloc (sb.st_size +1);
                 /* lettura vera e propria dalla pipe */
-                if ((Nread=(int)read_all(pd_result[0],pipe_buff[0], (size_t)sb.st_size))<0){
+                if ((Nread=(int)read_all(pd_result[0],result_buff[0], (size_t)sb.st_size))<0){
                     perror ("read_all from pipe error");
                     exit (EXIT_FAILURE);
                 }
                 /* inserisco NULL come terminatore */
-                pipe_buff[0][Nread]=0;
+                result_buff[0][Nread]=0;
 
                 /* chiusura canale di lettura da pipe */
                 if (close (pd_result[0])<0){
@@ -160,11 +160,15 @@ int main (int argc, char** argv){
                     exit (EXIT_FAILURE);
                 }
 
-                /** CREAZIONE E INVIO MESSAGGIO **/
-                netOut = createmex_c(pipe_buff,1);
+                /* calcolate the medie of cm in the request region */
+                result_buff[1] = medie_snow (result_buff[0]);
 
-                /* free pipe_buff */
-                free (pipe_buff[0]);
+                /** CREAZIONE E INVIO MESSAGGIO **/
+                netOut = createmex_c(result_buff,2);
+
+                /* free result_buff */
+                free (result_buff[0]);
+                free (result_buff[1]);
 
                 /* Scrittura su socket del risultato */
                 if (write_all(ns, netOut, u8_strlen(netOut))<0){
