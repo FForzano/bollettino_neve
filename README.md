@@ -4,6 +4,8 @@ This project is an example of Client-Server application.
 The server is in Posix-C, the Client both in Posix-C and Java.
 I tried to implement Canonical S-Expression protcol for comunication.
 
+Please send me code reviews and suggestion, I'm a student.
+
 Code example in this project:
 - Socket stream C and Java
 - Passive socket for server
