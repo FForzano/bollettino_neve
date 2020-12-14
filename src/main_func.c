@@ -105,6 +105,10 @@ void execute (int *pd_return, uint8_t *region_u8, uint8_t *N_u8){
     }
 }
 
+/**
+ * medie_snow calcolate the medie of centimeters of snow in the requested ski resort.
+ * Return a pointer of string with the medie, return NULL if there are any error.
+ **/
 char* medie_snow (char* buffer){
     int sum = 0, n_element=0;
     char* cm_c=NULL, *endptr, *output, *nextptr;
@@ -114,6 +118,7 @@ char* medie_snow (char* buffer){
     buffercpy = malloc (strlen(buffer)*sizeof(char));
     strcpy(buffercpy, buffer);
 
+    /* read the first field of every line of buffer */
     while ((cm_c=strtok_r(buffercpy,",", &nextptr))!=NULL){
         long cm;
 
@@ -128,14 +133,16 @@ char* medie_snow (char* buffer){
             return NULL;
         }
 
+        /* increment the total sum and the number of element */
         sum += (int)cm;
         n_element++;
 
+        /* move the pointer at the new line */
         if (strtok_r(buffercpy,"\n", &nextptr)==NULL) return NULL;
         buffercpy=nextptr;
     }
 
-    output = malloc (5);
+    output = malloc (5); /* allocate the output on the hype */
     sprintf (output, "%d", sum/n_element);
     return output;
 }

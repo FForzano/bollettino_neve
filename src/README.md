@@ -8,7 +8,7 @@ Source file of client application
 Server application
 
 ## main_func.c
-Function for execution of shell command in server app
+Function for execution of the main work of server app
 
 ## utils.c
 utils function for client and server

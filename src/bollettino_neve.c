@@ -81,6 +81,7 @@ int main (int argc, char** argv){
             exit (EXIT_FAILURE);
         }
 
+        /* print on standard output the result of server */
         ulc_fprintf (stdout, "%Umedie: %U cm\n", message[0], message[1]);
 
         /* new user request */

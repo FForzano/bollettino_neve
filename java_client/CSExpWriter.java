@@ -7,6 +7,7 @@ public class CSExpWriter {
         this.output = socketOut;
     }
 
+    // write on the output stream one message in Canonical S-Expression format
     public void writemex(String[] strings) throws Exception{
         String outBuff="";
         

@@ -8,6 +8,7 @@ public class CSExpReader {
         this.input = socketIn;
     }
 
+    // read from input stream one message in Canonical S-Expression format
     public String[] readmex() throws Exception{
         byte buff[] = new byte[8];
         String output[] = new String[0];

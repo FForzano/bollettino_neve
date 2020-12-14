@@ -1,8 +1,11 @@
+// java implementation of client
+
 import java.io.*;
 import java.net.*;
 
 public class BollettinoNeve {
     public static void main (String args[]){
+        // main parameter control
         if (args.length != 2){
             System.out.println("Usage: java BollettinoNeve host port");
             System.exit(-1);
@@ -22,6 +25,7 @@ public class BollettinoNeve {
             CSExpReader netIn = new CSExpReader(s.getInputStream());
             CSExpWriter netOut = new CSExpWriter(s.getOutputStream());
 
+            // User interface
             String info[]= new String[2];
             System.out.println ("Inserire la regione di interesse:");
             info[0]=usrIn.readLine();
