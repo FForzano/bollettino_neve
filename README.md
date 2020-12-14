@@ -14,7 +14,6 @@ Code example in this project:
 - use of strtol
 - Implementation of Canonical S-Expression (csexp)
 
-***
 ___
 
 The program simulate the request of information about ski location in Italy.
@@ -22,11 +21,10 @@ User insert the region and the number of ski resort and the server have to send 
 
 (I supposed the info are in /usr/local/bollettino_neve/<region>.txt)
 
-***
 ___
 Applicative protocol:
 
-Client                          Server
+Client---------------------------Server
 
     (<len>:<region><len>:<number>)
     ----------------------------->
