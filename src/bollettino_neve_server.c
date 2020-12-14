@@ -161,7 +161,10 @@ int main (int argc, char** argv){
                 }
 
                 /* calcolate the medie of cm in the request region */
-                result_buff[1] = medie_snow (result_buff[0]);
+                if ((result_buff[1] = medie_snow (result_buff[0]))==NULL){
+                    fprintf (stderr, "error in calcolate medie\n");
+                    exit (EXIT_FAILURE);
+                }
 
                 /** CREAZIONE E INVIO MESSAGGIO **/
                 netOut = createmex_c(result_buff,2);

@@ -131,7 +131,7 @@ char* medie_snow (char* buffer){
         sum += (int)cm;
         n_element++;
 
-        strtok_r(buffercpy,"\n", &nextptr); /* manca controllo */
+        if (strtok_r(buffercpy,"\n", &nextptr)==NULL) return NULL;
         buffercpy=nextptr;
     }
 
