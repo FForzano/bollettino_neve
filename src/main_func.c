@@ -118,11 +118,11 @@ char* medie_snow (char* buffer){
     buffercpy = malloc (strlen(buffer)*sizeof(char));
     strcpy(buffercpy, buffer);
 
+    nextptr=buffercpy;
     /* read the first field of every line of buffer */
-    while ((cm_c=strtok_r(buffercpy,",", &nextptr))!=NULL){
+    while ((cm_c=strtok_r(nextptr,",", &nextptr))!=NULL){
         long cm;
 
-        buffercpy = nextptr;
         cm = strtol (cm_c, &endptr, 10);
         if ((cm == LONG_MIN || cm == LONG_MAX) && (errno == ERANGE)){
             /* overflow or underflow in conversion */
@@ -138,9 +138,9 @@ char* medie_snow (char* buffer){
         n_element++;
 
         /* move the pointer at the new line */
-        if (strtok_r(buffercpy,"\n", &nextptr)==NULL) return NULL;
-        buffercpy=nextptr;
+        if (strtok_r(nextptr,"\n", &nextptr)==NULL) return NULL;
     }
+    free(buffercpy);
 
     output = malloc (5); /* allocate the output on the hype */
     sprintf (output, "%d", sum/n_element);
