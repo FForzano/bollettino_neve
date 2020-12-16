@@ -4,8 +4,8 @@ import java.util.zip.DataFormatException;
 public class CSExpReader {
     private InputStream input;
 
-    public CSExpReader (InputStream socketIn){
-        this.input = socketIn;
+    public CSExpReader (InputStream input){
+        this.input = input;
     }
 
     // read from input stream one message in Canonical S-Expression format

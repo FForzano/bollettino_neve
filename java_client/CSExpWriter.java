@@ -3,8 +3,8 @@ import java.io.*;
 public class CSExpWriter {
     private OutputStream output;
 
-    public CSExpWriter (OutputStream socketOut){
-        this.output = socketOut;
+    public CSExpWriter (OutputStream output){
+        this.output = output;
     }
 
     // write on the output stream one message in Canonical S-Expression format
