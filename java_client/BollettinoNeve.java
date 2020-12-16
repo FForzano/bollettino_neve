@@ -34,6 +34,7 @@ public class BollettinoNeve {
                 info[1]=usrIn.readLine();
 
                 netOut.writemex(info);
+                netOut.flush();
 
                 // print all return messages
                 String[] messages = netIn.readmex();

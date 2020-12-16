@@ -21,4 +21,8 @@ public class CSExpWriter {
         outBuff = outBuff + ")";
         output.write (outBuff.getBytes("UTF-8"));
     }
+
+    public void flush() throws IOException{
+        output.flush();
+    }
 }
