@@ -13,7 +13,8 @@
 /* #define _POSIX_C_SOURCE 200809L */
 
 /**
- *    Prova a connettersi a tutti gli indirizzi in lista, se non riesce ritorna -1
+ * Try to connect at all address in res list.
+ * Failure return value: -1
  **/
 int socket_fallback (struct addrinfo *res);
 
